@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/UPLOAD"
-    android:title="Upload Photo"/>
+    android:title="Upload Photo"
+        android:icon="@drawable/ic_baseline_add_a_photo_24"/>
     <item android:id="@+id/inbox"
-        android:title="INBOX"/>
+        android:title="INBOX"
+        android:icon="@drawable/ic_baseline_inbox_24"/>
     <item android:id="@+id/market"
-        android:title="MARKET"/>
+        android:title="MARKET"
+        android:icon="@drawable/ic_baseline_shop_24"/>
     <item android:id="@+id/about"
         android:title="LOGOUT"/>
 </menu>

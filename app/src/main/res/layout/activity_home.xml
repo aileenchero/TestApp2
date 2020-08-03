@@ -1,74 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:background="@drawable/loginbackground"
-    android:stretchColumns="1">
+    tools:context=".MainActivity"
+    android:id="@+id/drawable_layout">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Layout"
+        android:textSize="24dp"
+        android:layout_gravity="center_vertical"/>
+    </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         app:menu="@menu/navigation_menu"
-        android:layout_gravity="start">
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true">
+
     </com.google.android.material.navigation.NavigationView>
 
 
-
-    <TableRow
-        android:id="@+id/firstRow"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-
-        <SearchView
-            android:id="@+id/simpleSearchView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-
-    </TableRow>
-    <TableRow
-        android:id="@+id/second_row"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp" />
-
-        <Button
-            android:id="@+id/add_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="+"
-            android:textSize="40sp"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Upload the a photo"
-            android:textSize="20dp"
-            android:id="@+id/photo"/>
-
-    </TableRow>
-    <TableRow
-        android:id="@+id/third_row"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:text="click here to chat"
-        android:textSize="20dp"
-            android:id="@+id/Chatbox"/>
-
-
-
-    </TableRow>
-
-
-
-</TableLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
