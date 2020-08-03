@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/UPLOAD"
+    android:title="Upload Photo"/>
+    <item android:id="@+id/inbox"
+        android:title="INBOX"/>
+    <item android:id="@+id/market"
+        android:title="MARKET"/>
+    <item android:id="@+id/about"
+        android:title="LOGOUT"/>
+</menu>

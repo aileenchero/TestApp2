@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">TestApp2</string>
+    <string name="facebook_app_id">1454459404736751</string>
+    <string name="fb_login_protocol_scheme">fb1454459404736751</string>
+    <string name="dialogTitle">Delete File</string>
+    <string name="dialogMessage">Deleting file may be harm your system</string>
+
+</resources>
