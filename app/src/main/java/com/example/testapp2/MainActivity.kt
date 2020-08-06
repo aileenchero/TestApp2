@@ -2,14 +2,10 @@ package com.example.testapp2
 
 
 import android.content.Intent
-import android.content.pm.PackageInfo
-import android.content.pm.PackageManager
 import android.os.Bundle
-import android.util.Base64
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.FragmentActivity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -18,11 +14,8 @@ import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.database.DatabaseReference
 import kotlinx.android.synthetic.main.activity_main.*
-import java.security.MessageDigest
-import java.security.NoSuchAlgorithmException
 import java.util.*
 
 
@@ -133,10 +126,10 @@ class MainActivity : AppCompatActivity() {
 
     fun handleFacebookAccessToken(token : AccessToken?){
         var credential = FacebookAuthProvider.getCredential(token?.token!!)
-        auth?.signInWithCredential(credential)
-            ?.addOnCompleteListener(this) { task ->
+        auth.signInWithCredential(credential)
+            .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    moveMainPage(task.result?.user)
+                    moveMainPage()
                     val intent = Intent(this, Home::class.java)
                     startActivity(intent)
 
@@ -149,7 +142,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun moveMainPage(user: FirebaseUser?) {
+    private fun moveMainPage() {
 
     }
 

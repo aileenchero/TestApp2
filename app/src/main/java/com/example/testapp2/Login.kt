@@ -43,7 +43,7 @@ class Login : AppCompatActivity() {
                 .addOnCompleteListener {task ->
                     if (task.isSuccessful){
 //                        sign in success
-                        val user = auth.currentUser!!.uid
+                        auth.currentUser!!.uid
 
                         Toast.makeText(this, "Success", Toast.LENGTH_LONG).show()
                         val intent = Intent(this, Home::class.java)
