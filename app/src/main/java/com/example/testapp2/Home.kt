@@ -20,8 +20,7 @@ class Home : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+        setContentView(R.layout.activity_home)
 
         toggle = ActionBarDrawerToggle(this,drawable_layout, R.string.open, R.string.close)
         drawable_layout.addDrawerListener(toggle)

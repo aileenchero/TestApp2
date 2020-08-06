@@ -29,8 +29,6 @@ class Login : AppCompatActivity() {
             startActivity(Intent(this, MainActivity::class.java))
         }
 
-
-
     }
     private fun loginUser() {
 //        get values

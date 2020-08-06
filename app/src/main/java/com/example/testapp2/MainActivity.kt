@@ -25,9 +25,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var database: DatabaseReference
 
     private var fUserID: String = ""
-    var callbackManager : CallbackManager? = null
-
-
+    var callbackManager: CallbackManager? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -55,9 +53,6 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-
-
-
     private fun writeNewUser() {
 
         val username = editTextTextUsername.text.toString()
@@ -68,7 +63,7 @@ class MainActivity : AppCompatActivity() {
             auth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener { task ->
 
-                    if (task.isSuccessful){
+                    if (task.isSuccessful) {
                         //                  sign in success update ui
                         Log.d("success", "create user with email is successful")
 
@@ -82,17 +77,19 @@ class MainActivity : AppCompatActivity() {
 
 
                         updateUi()
-                    }else {
+                    } else {
                         Log.w("failure", "Create user with email failed")
 
-                        Toast.makeText(baseContext, "Authentication failed." + task.exception!!.message,
-                            Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            baseContext, "Authentication failed." + task.exception!!.message,
+                            Toast.LENGTH_SHORT
+                        ).show()
 //                        updateUi(null)
                     }
                 }
 
-        }else {
-            Toast.makeText(this,"Please fill up the Credentials :|", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(this, "Please fill up the Credentials :|", Toast.LENGTH_LONG).show()
         }
 
 
@@ -103,9 +100,10 @@ class MainActivity : AppCompatActivity() {
         editTextTextEmail.setText("")
         editTextTextPassword.setText("")
     }
-    fun facebookLogin(){
+
+    fun facebookLogin() {
         LoginManager.getInstance()
-            .logInWithReadPermissions(this, Arrays.asList("public_profile","email"))
+            .logInWithReadPermissions(this, Arrays.asList("public_profile", "email"))
         LoginManager.getInstance()
             .registerCallback(
                 callbackManager,
@@ -124,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                 })
     }
 
-    fun handleFacebookAccessToken(token : AccessToken?){
+    fun handleFacebookAccessToken(token: AccessToken?) {
         var credential = FacebookAuthProvider.getCredential(token?.token!!)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
@@ -133,12 +131,11 @@ class MainActivity : AppCompatActivity() {
                     val intent = Intent(this, Home::class.java)
                     startActivity(intent)
 
-                }else{
-                    Toast.makeText(this, task.exception?.message,Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this, task.exception?.message, Toast.LENGTH_LONG).show()
 
                 }
             }
-
 
     }
 
@@ -147,15 +144,10 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-        override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        callbackManager?.onActivityResult(requestCode,resultCode, data)
+        callbackManager?.onActivityResult(requestCode, resultCode, data)
     }
-
-
-
-
-
 
 
 }
