@@ -9,6 +9,6 @@
     <item android:id="@+id/market"
         android:title="MARKET"
         android:icon="@drawable/ic_baseline_shop_24"/>
-    <item android:id="@+id/about"
+    <item android:id="@+id/logOut"
         android:title="LOGOUT"/>
 </menu>
