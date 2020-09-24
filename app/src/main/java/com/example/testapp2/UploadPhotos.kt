@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.testapp2
 
 import android.app.Activity
@@ -22,7 +24,7 @@ class UploadPhotos : AppCompatActivity(),View.OnClickListener {
     private val PICK_IMAGE_REQUEST = 1234
 
     private var filePath: Uri? = null
-    internal var storage:FirebaseStorage? = null
+    private var storage:FirebaseStorage? = null
     internal var storageReference:StorageReference? = null
 
 
@@ -56,10 +58,10 @@ class UploadPhotos : AppCompatActivity(),View.OnClickListener {
                 resultCode== Activity.RESULT_OK &&
                 data != null && data.data != null)
         {
-            filePath = data.data;
+            filePath = data.data
             try {
                 val bitmap = MediaStore.Images.Media.getBitmap(contentResolver,filePath)
-                imageView!!.setImageBitmap(bitmap)
+                imageView_uploads!!.setImageBitmap(bitmap)
             }catch (e:IOException)
             {
                 e.printStackTrace()
@@ -79,15 +81,16 @@ class UploadPhotos : AppCompatActivity(),View.OnClickListener {
             imageRef.putFile(filePath!!)
                 .addOnSuccessListener {
                     progressDialog.dismiss()
-                    Toast.makeText(applicationContext,"File Uploaded",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "File Uploaded", Toast.LENGTH_SHORT).show()
                 }
                 .addOnFailureListener {
                     progressDialog.dismiss()
-                    Toast.makeText(applicationContext,"Failed",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(applicationContext, "Failed", Toast.LENGTH_SHORT).show()
                 }
-                .addOnProgressListener { taskSnapShot->
-                    val progress = 100.0 * taskSnapShot.bytesTransferred/taskSnapShot.totalByteCount
-                    progressDialog.setMessage("Uploaded "+progress.toInt() + "%...")
+                .addOnProgressListener { taskSnapShot ->
+                    val progress =
+                        100.0 * taskSnapShot.bytesTransferred / taskSnapShot.totalByteCount
+                    progressDialog.setMessage("Uploaded " + progress.toInt() + "%...")
                 }
 
 

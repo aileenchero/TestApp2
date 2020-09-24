@@ -1,17 +1,11 @@
 package com.example.testapp2
-
-
-
 import android.os.Bundle
 import com.google.firebase.auth.FirebaseAuth
-import android.view.Gravity
-import android.view.View
 import android.content.Intent
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
 import kotlinx.android.synthetic.main.activity_home.*
 
 class Home : AppCompatActivity() {
@@ -45,7 +39,7 @@ class Home : AppCompatActivity() {
                         applicationContext,
                         "Click Item 2", Toast.LENGTH_SHORT
                     ).show()
-                    val intent =Intent(this, ChatBox::class.java)
+                    val intent =Intent(this, Market::class.java)
                     startActivity(intent)
                 }
                 R.id.market-> {
@@ -53,7 +47,7 @@ class Home : AppCompatActivity() {
                         applicationContext,
                         "Click Item 3", Toast.LENGTH_SHORT
                     ).show()
-                    val intent =Intent(this, ChatBox::class.java)
+                    val intent =Intent(this, Market::class.java)
                     startActivity(intent)
                 }
                 R.id.logOut -> {
@@ -82,13 +76,3 @@ class Home : AppCompatActivity() {
         finish()
     }
 }
-
-
-
-
-
-
-
-
-        
-
