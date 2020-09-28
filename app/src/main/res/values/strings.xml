@@ -7,4 +7,12 @@
     <string name="open">Open</string>
     <string name="close">Close</string>
 
+    <string-array name="market_items">
+    <item>Tv</item>
+    <item>Cup</item>
+    <item>Table</item>
+    </string-array>
+
+
+
 </resources>

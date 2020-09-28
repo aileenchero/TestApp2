@@ -8,8 +8,15 @@
     android:layout_height="match_parent"
     tools:context=".Home">
 
-
-
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/lv_listView" />
+    <SearchView
+        android:id="@+id/search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"/>
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/navView"
@@ -21,7 +28,6 @@
         app:menu="@menu/navigation_menu">
 
     </com.google.android.material.navigation.NavigationView>
-
 
 
 

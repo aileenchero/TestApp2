@@ -1,25 +1,23 @@
 package com.example.testapp2
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.activity_upload_photos.*
-import kotlinx.android.synthetic.main.activity_upload_photos.view.*
-import kotlinx.android.synthetic.main.activity_upload_photos.view.imageView_uploads
 import kotlinx.android.synthetic.main.item_images.view.*
 
+import com.squareup.picasso.Picasso.with as picassoWith
 
-class ImageAdapter(
-    val urls: List<String>
-): RecyclerView.Adapter<ImageAdapter.ImageViewHolder>() {
-    inner class ImageViewHolder(itemView: View):RecyclerView.ViewHolder(itemView)
+class ImageAdapter (private var items:List<Item>, private val context: Context):
+    RecyclerView.Adapter<ImageAdapter.ViewHolder>() {
+        inner class ImageViewHolder(itemView:View): RecyclerView.ViewHolder(itemView)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ImageViewHolder {
-        return ImageViewHolder(
-            LayoutInflater.from(parent.context).inflate(
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        return ViewHolder(
+            LayoutInflater.from(context).inflate(
                 R.layout.item_images,
                 parent,
                 false
@@ -28,11 +26,15 @@ class ImageAdapter(
     }
 
     override fun getItemCount(): Int {
-        return urls.size
+        return items.size
     }
 
-    override fun onBindViewHolder(holder: ImageViewHolder, position: Int) {
-        val url = urls[position]
-        Glide.with(holder.itemView).load(url).into(holder.itemView.imageView)
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = items[position]
+        picassoWith(holder.itemView.context).load(item.imageUrl).into(holder.itemView.imageView)
+    }
+
+    class ViewHolder(view: View):RecyclerView.ViewHolder(view) {
+        val imageView: ImageView = view.findViewById(R.id.imageView)
     }
 }
